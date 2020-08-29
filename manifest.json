@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+    "name": "Note Taking app.",
+    "version": "1.0.0",
+    "browser_action": {
+        "default_popup": "index.html"
+    },
+    "description": "Stores just a text line.",
+    "permissions" : [
+        "storage"
+    ]
+}
+
