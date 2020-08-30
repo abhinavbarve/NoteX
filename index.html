@@ -6,44 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>chrome_extension</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/styles.css">
     </head>
 
     <body>
         <div class="container-fluid">
             
-            <input type="text" name="title" id="noteTitle" placeholder="Title">
-            <textarea id="notes" cols="30" rows="10" placeholder="Type here" spellcheck="false" autofocus></textarea>
+            <input type="text" name="title" id="noteTitle" placeholder="Title" autocomplete="off">
+            <textarea id="notes" cols="30" rows="10" placeholder="Type here" autofocus spellcheck="true" required></textarea>
             <div id="icons"></div>
 
         </div>
-        <div id="keyboard-modal" class="modal">
-		<div class="modal-content">
-			<img src="img/icon/close.svg" class="close icon">
-			<img src="img/icon/keyboard.svg">
-			<h3>Shortcuts</h3>
-			<br><br>
-			<p>These work with most text editors as well</p>
-			<ul>
-				<li>Cut: <kbd>Ctrl + X</kbd></li>
-				<li>Copy: <kbd>Ctrl + C</kbd></li>
-				<li>Paste: <kbd>Ctrl + V</kbd></li>
-				<li>Select All: <kbd>Ctrl + A</kbd></li>
-				<hr>
-				<li>Move left / right one word at a time: <kbd>Ctrl + &#x2B05;</kbd> / <kbd>Ctrl + &#x27A1;</kbd></li>
-				<li>Select left / right character (works up/down too): <kbd>Shift + &#x2B05;</kbd> / <kbd>Shift + &#x27A1;</kbd></li>
-				<li>Select left / right word at a time: <kbd>Ctrl + Shift + &#x2B05;</kbd> / <kbd>Ctrl + Shift + &#x27A1;</kbd></li>
-				<hr>
-				<li>Delete previous / next word: <kbd>Ctrl + Backspace</kbd> / <kbd>Ctrl + Delete</kbd></li>
-				<li>Start / end of line: <kbd>Home</kbd> / <kbd>End</kbd></li>
-				<li>Page up / down: <kbd>PgUp</kbd> / <kbd>PgDn</kbd></li>
-				<hr>
-				<li>Double-click text to select that word, triple-click text to select that line</li> 
-			</ul>
-			Use <kbd>Esc</kbd> to close Chrome Notes quickly.
-		</div>
-	</div>
             <!-- <button id="save" class="btn">Save</button>
             <button id="get" class="btn">Get</button> -->
 

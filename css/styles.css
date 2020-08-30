@@ -1,15 +1,19 @@
 body{
-  padding: 5px;
-  background: rgb(248, 248, 248);
-  color: #000;
+
+  /* background: rgb(248, 248, 248); */
+  color: #152850;
   text-align: center;
+  scroll-behavior: smooth;
+  background : #dae1e7;
+  font-weight: bold;
+  font-family: 'Alata', sans-serif;
 }
 
 .btn{
   border-radius: 0px;
   border-style: solid;
   border-width: 3px;
-  border-color: rgb(114, 114, 114);
+  border-color: #dae1e7;
   width: 100px;
 }
 
@@ -20,20 +24,50 @@ body{
   max-width: 500px;
   max-height: 400px;
   color: black;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
+  border-radius: 3px;
+  border-style: none;
+  padding: 2px 5px;
 }
 
 #noteTitle{
   width: 100%;
   margin: 10px 0px;
+  border-radius: 2px;
+  border-style: none;
+  padding: 2px 5px;
+  font-size: 15px;
 }
 
+#notes:focus, #noteTitle:focus{
+  outline-style: none;
+  box-shadow : 0 0 8px rgb(201, 201, 201); 
+}
 .icon{
-  margin: 5px;
-  color: rgb(114, 114, 114);
+  margin: 10px 5px;
+  color: rgb(115, 115, 115);
 }
 
 .icon:focus{
   outline:none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(115, 115, 115);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }

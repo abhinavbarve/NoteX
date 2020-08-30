@@ -1,17 +1,12 @@
 window.onload = function () {
+
     let notes = document.getElementById("notes")
     let noteValue = document.getElementById("notes").value
     let noteTitle = document.getElementById("noteTitle").value
+
     let icons = document.getElementById("icons");
-    
-    notes.onchange = () => {
 
-        chrome.storage.sync.set({ "notes": noteValue })
-        chrome.storage.sync.set({ "title": noteTitle })
- 
-    }
-
-    let iconNames = ["cut", "copy", "paste", "select-all", "delete", "save", "undo", "redo", "info"];
+    let iconNames = ["cut", "copy", "paste", "select-all", "delete", "save", "undo", "redo"];
 	for(let i = 0; i < iconNames.length; i++) {
 		let icon = document.createElement("img");
 		icon.src = "https://img.icons8.com/metro/26/000000/" + iconNames[i] + ".png";
@@ -47,15 +42,8 @@ window.onload = function () {
         notes.focus();
         document.execCommand("delete");
     }
-    document.getElementById("save").onclick = ()=> {
-        notes.focus();
-        let file = {
-            url: "data:application/txt," + 
-                encodeURIComponent(notes.value.replace(/\r?\n/g, '\r\n') ),
-            filename: "notes.txt"
-        }
-        chrome.downloads.download(file);
-    }
+    
+
     document.getElementById("undo").onclick = ()=> {
         notes.focus();
         document.execCommand("undo");
@@ -66,32 +54,34 @@ window.onload = function () {
     } 
     
 
-    // document.getElementById("open-as-window").onclick = ()=> {
-	// 	notes.focus();
-	// 	chrome.windows.create(
-	// 		{
-	// 			url: '../index.html',
-	// 			type: 'popup',
-	// 			width: window.outerWidth,
-	// 			height: window.outerHeight
-	// 		}, 
-	// 		(window)=> {}
-	// 	);
-    // }
+    document.getElementById("save").onclick = ()=> {
+        notes.focus();
+        let saveName
+        let title = localStorage.getItem(noteTitle)
+        console.log(title)
+        if (localStorage.getItem(noteTitle) != "") {
+            saveName = "One-(NoteX).txt"
+        } else {
+            saveName = "NoteX_untitled.txt"
+        }
+		let file = {
+			url: "data:application/," + 
+				encodeURIComponent(notes.value.replace(/\r?\n/g, '\r\n') ),
+            filename: saveName
+		}
+		chrome.downloads.download(file);
+	}
     
-    if(localStorage) {
-		// load title, note
-		notes.title = chrome.storage.sync.get("noteTitle");
-        notes.value = chrome.storage.sync.get("noteValue");
+    if (localStorage) {
+        
+        notes.title = localStorage.getItem("noteTitle");
+        notes.value = localStorage.getItem("noteValue");
 		
-		// load size
 		notes.style.width = localStorage.getItem("noteWidth") + "px";
 		notes.style.height = localStorage.getItem("noteHeight") + "px";
 	}
     
     document.onmouseup = storeSize;
-
-    setupModal("keyboard", "keyboard-modal");
 
     function storeSize() {
         if (localStorage) {

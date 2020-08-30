@@ -7,7 +7,7 @@
     },
     "description": "Stores just a text line.",
     "permissions" : [
-        "storage"
+        "storage", "downloads"
     ]
 }
 

@@ -191,3 +191,6 @@ function storeSize() {
 		localStorage.setItem("noteHeight", notes.clientHeight);
 	}
 }
+
+
+
